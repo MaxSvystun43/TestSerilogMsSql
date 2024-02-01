@@ -33,7 +33,6 @@ namespace CustomLogEventFormatterDemo
             services.AddDbContext<LogDbContext>();
 
             var _appDbContext = new LogDbContext();
-            // New MSSqlServerSinkOptions based interface
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.EntityFrameworkSink(_appDbContext, CultureInfo.CurrentCulture)
                 .WriteTo.Console()
@@ -94,15 +93,11 @@ namespace CustomLogEventFormatterDemo
                 // Add common FluentMigrator services
                 .AddFluentMigratorCore()
                 .ConfigureRunner(rb => rb
-                    // Add SQLite support to FluentMigrator
                     .AddPostgres()
-                    // Set the connection string
+                    //.AddSqlServer()
                     .WithGlobalConnectionString(_connectionString)
-                    // Define the assembly containing the migrations
                     .ScanIn(typeof(Migration_20240201).Assembly).For.Migrations())
-                // Enable logging to console in the FluentMigrator way
                 .AddLogging(lb => lb.AddFluentMigratorConsole())
-                // Build the service provider
                 .BuildServiceProvider(false);
         }
 

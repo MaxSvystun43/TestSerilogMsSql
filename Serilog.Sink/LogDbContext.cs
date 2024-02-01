@@ -16,6 +16,7 @@ namespace TestSerilogMsSql.Serilog.Sink
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseNpgsql(conn);
+                //optionsBuilder.UseSqlServer(conn);
             }
         }
 
