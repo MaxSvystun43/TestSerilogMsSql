@@ -16,6 +16,7 @@ namespace CustomLogEventFormatterDemo
     public static class Program
     {
         private const string _connectionString = "Server=localhost;Database=rscore;User ID=rscore;Password=RsCore2022";
+        //private const string _connectionString = "Data Source=localhost; Initial Catalog=Developer; User Id=SA; Password=MyPass@word; TrustServerCertificate=True";
         private const string _schemaName = "logs";
         private const string _tableName = "LogEvents";
 
